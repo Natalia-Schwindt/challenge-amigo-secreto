@@ -20,3 +20,14 @@ function mostrarAmigos() {
        lista.appendChild(li);
     }
 }
+
+function sortearAmigo() {
+    if (amigos.length === 0) {
+        alert("No hay amigos para sortear");
+    } else {
+        let sorteado = Math.floor(Math.random() * amigos.length);
+        let nombreSorteado = amigos[sorteado];
+        document.getElementById("resultado").innerHTML = `El amigo secreto es: ${nombreSorteado}`;
+        document.querySelector("#listaAmigos").innerHTML = "";
+    }
+}
