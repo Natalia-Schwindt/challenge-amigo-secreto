@@ -1,12 +1,22 @@
 let amigos = [];
 
-function agregarAmigos(){
-    let amigo = document.querySelector("#amigo").value;
-    if (amigo == "") {
+function agregarAmigo(){
+    let nombreAmigo = document.querySelector("#amigo").value;
+    if (nombreAmigo == "") {
         alert('Por favor, inserte un nombre');
     } else {
-        amigos.push(amigo);
-        document.querySelector("#amigo") = "";
+        amigos.push(nombreAmigo);
+        mostrarAmigos();
+        document.querySelector("#amigo").value = "";
     }
 }
-agregarAmigos();
+
+function mostrarAmigos() {
+    let lista = document.querySelector("#listaAmigos");
+    lista.innerHTML = "";
+    for (let amigo of amigos) {
+       let li = document.createElement("li");
+       li.innerText = amigo;
+       lista.appendChild(li);
+    }
+}
